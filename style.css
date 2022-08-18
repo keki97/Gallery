@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  /* width: 100vw; */
+  font-family: "Playball", cursive;
+  display: grid;
+  place-items: center;
+  background-color: rgba(66, 135, 245, 0.274);
+  color: #000;
+}
+
+.container {
+  padding: 50px 20px;
+  max-width: 1400px;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  font-size: 48px;
+  letter-spacing: 1.5px;
+  margin-bottom: 50px;
+}
+
+.gallery {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.gallery-images {
+  overflow: hidden;
+}
+
+.gallery-img {
+  max-width: 100%;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 5px solid #fff;
+}
+
+.gallery-img:hover {
+  transform: scale(1.25);
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.747);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-img-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.modal-img {
+  max-width: 60%;
+  opacity: 1;
+  margin: 0 10px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.btn {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.current-image {
+  padding: 6px 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .modal-img {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal-img {
+    max-width: 80%;
+  }
+}
+@media (max-width: 750px) {
+  .modal-img {
+    max-width: 95%;
+  }
+}
