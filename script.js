@@ -59,7 +59,7 @@ gallery.addEventListener("click", function (e) {
 });
 
 bodyEl.addEventListener("click", function (e) {
-  console.log(e.target);
+  // console.log(e.target);
   e.preventDefault();
   if (e.target.classList.contains("right") && imgNumber < images.length - 1) {
     const modalImage = document.querySelector(".modal-img");
@@ -74,7 +74,7 @@ bodyEl.addEventListener("click", function (e) {
   } else if (e.target.classList.contains("left") && imgNumber > 0) {
     const modalImage = document.querySelector(".modal-img");
     imgNumber--;
-    console.log(imgNumber);
+    // console.log(imgNumber);
     document.querySelector(".current-image").innerHTML = `${imgNumber + 1}/${
       images.length
     }`;
