@@ -18,13 +18,13 @@ const images = [
   "https://picsum.photos/id/248/1920/1080",
   "https://picsum.photos/id/249/1920/1080",
   "https://picsum.photos/id/250/1920/1080",
-  "https://picsum.photos/id/250/1920/1080",
 ];
 
 const gallery = document.querySelector(".gallery");
 const image = document.querySelector(".gallery-img");
 const modal = document.querySelector(".modal");
 const modalImgContainer = document.querySelector(".modal-img-container");
+const bodyEl = document.querySelector("body");
 let imgNumber;
 
 const displayImages = function () {
@@ -58,7 +58,8 @@ gallery.addEventListener("click", function (e) {
   }
 });
 
-modal.addEventListener("click", function (e) {
+bodyEl.addEventListener("click", function (e) {
+  console.log(e.target);
   e.preventDefault();
   if (e.target.classList.contains("right") && imgNumber < images.length - 1) {
     const modalImage = document.querySelector(".modal-img");
@@ -73,16 +74,20 @@ modal.addEventListener("click", function (e) {
   } else if (e.target.classList.contains("left") && imgNumber > 0) {
     const modalImage = document.querySelector(".modal-img");
     imgNumber--;
+    console.log(imgNumber);
     document.querySelector(".current-image").innerHTML = `${imgNumber + 1}/${
       images.length
     }`;
     curImage = images[imgNumber];
     modalImgContainer.innerHTML = `<img src='${images[imgNumber]}' class='modal-img' />'`;
     // console.log(curImage);
-  } else if (imgNumber >= images.length - 1 || imgNumber <= 0) return;
-  else {
+  } else if (imgNumber > images.length - 1 || imgNumber < 0) return;
+  else if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal-img-container")
+  ) {
+    // console.log(e.target);
     modal.classList.add("hidden");
-
     modalImgContainer.innerHTML = "";
   }
 });
