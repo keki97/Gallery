@@ -18,6 +18,7 @@ const images = [
   "https://picsum.photos/id/248/1920/1080",
   "https://picsum.photos/id/249/1920/1080",
   "https://picsum.photos/id/250/1920/1080",
+  "https://picsum.photos/id/250/1920/1080",
 ];
 
 const gallery = document.querySelector(".gallery");
@@ -78,7 +79,8 @@ modal.addEventListener("click", function (e) {
     curImage = images[imgNumber];
     modalImgContainer.innerHTML = `<img src='${images[imgNumber]}' class='modal-img' />'`;
     // console.log(curImage);
-  } else {
+  } else if (imgNumber >= images.length - 1 || imgNumber <= 0) return;
+  else {
     modal.classList.add("hidden");
 
     modalImgContainer.innerHTML = "";
